@@ -42,6 +42,11 @@ dependencies {
     providedRuntime('org.apache.tomcat.embed:tomcat-embed-jasper')
     compile('javax.servlet:jstl')
 
+    compile('org.webjars:jquery:1.11.3')
+    compile('org.webjars.bower:free-jqgrid:4.11.1')
+    compile('org.webjars:jquery-ui:1.11.4')
+    compile('org.webjars:jquery-ui-themes:1.11.4')
+    compile('org.webjars:font-awesome:4.5.0')
 }
 
 
