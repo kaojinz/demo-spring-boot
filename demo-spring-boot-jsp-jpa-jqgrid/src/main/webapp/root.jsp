@@ -67,8 +67,22 @@
                             return "disabled";
                         }
                         return false; // don't allows editing in other editing modes
-                    },
-                    $grid = $("#grid");
+                    };
+
+
+            $.extend(true, $.jgrid.edit, {
+                recreateForm: true,
+                beforeShowForm: function ($form) {
+                    $form.closest(".ui-jqdialog").position({
+//                        of: $(this), // or any other element
+                        my: "center center",
+                        at: "center center"
+                    });
+                }
+            });
+
+
+            var $grid = $("#grid");
 
             $grid.jqGrid({
                 data: mydata,
