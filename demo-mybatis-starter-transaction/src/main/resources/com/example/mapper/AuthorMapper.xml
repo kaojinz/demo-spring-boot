@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.AuthorMapper">
+
+    <select id="selectAuthorAll" parameterType="map" resultType="map">
+        SELECT *
+        FROM AUTHOR
+    </select>
+
+    <select id="selectMapById2" parameterType="int" resultType="map">
+        SELECT *
+        FROM AUTHOR
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="insertAuthorMap">
+        <selectKey keyProperty="ID" resultType="int" order="BEFORE">
+            SELECT MAX(id) + 1 FROM AUTHOR
+        </selectKey>
+        INSERT INTO AUTHOR
+        (ID
+        ,FIRST_NAME
+        ,LAST_NAME
+        ,DATE_OF_BIRTH
+        ,YEAR_OF_BIRTH
+        ,DISTINGUISHED
+        )
+        VALUES
+        (#{ID}
+        ,#{FIRST_NAME}
+        ,#{LAST_NAME}
+        ,#{DATE_OF_BIRTH}
+        ,#{YEAR_OF_BIRTH}
+        ,#{DISTINGUISHED}
+        );
+    </insert>
+
+</mapper>
